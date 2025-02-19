@@ -16,7 +16,13 @@ here:
 cat /workspace/stable-diffusion-webui/relauncher.py
  
 copy paset to file here
- 
+
+wget https://raw.githubusercontent.com/Akehorn/ComfyUIReq/refs/heads/main/relauncher.py -O /workspace/stable-diffusion-webui/relauncher.py
+
+
+chmod 644 /path/to/existing/relauncher.py
+
+chmod 644 /workspace/stable-diffusion-webui/relauncher.py
 """
 import os
 import time
@@ -33,7 +39,8 @@ def relaunch_process(launch_counter=0):
 
         try:
             # launch_string = "/workspace/stable-diffusion-webui/webui.sh -f"
-            launch_string = "/workspace/stable-diffusion-webui/webui.sh -f --xformers --api --enable-insecure-extension-access --no-half-vae"
+            # launch_string = "/workspace/stable-diffusion-webui/webui.sh -f --xformers --api --enable-insecure-extension-access --no-half-vae"
+            launch_string = "/workspace/stable-diffusion-webui/webui.sh -f --xformers --api --controlnet-allow-ip-adapter"
             os.system(launch_string)
         except Exception as err:
             print(f"An error occurred: {err}")
